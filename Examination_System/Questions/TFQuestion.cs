@@ -11,7 +11,7 @@ namespace Examination_System.Questions
     {
         public TFQuestion(string body, int marks) : base("True OR False", body, marks)
         {
-
+            Type = QuestionType.TF;
         }
 
         public override AnswersList GetAnswer()
@@ -32,6 +32,20 @@ namespace Examination_System.Questions
         {
             Console.WriteLine(this);
             Console.WriteLine("1.True - 2.False");
+        }
+
+        public override object Clone()
+        {
+            TFQuestion question = new TFQuestion(Body, Marks);
+            foreach (Answer answer in Answers)
+            {
+                question.Answers.Add(answer);
+            }
+            foreach (Answer answer in CorrectAnswers)
+            {
+                question.CorrectAnswers.Add(answer);
+            }
+            return question;
         }
     }
 }

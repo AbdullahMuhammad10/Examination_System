@@ -8,19 +8,17 @@ namespace Examination_System.Questions
 {
     internal class QuestionsList : HashSet<Question>
     {
-        public int Id { get; set; }
-
         public new void Add(Question question)
         {
             base.Add(question);
-            using (TextWriter writer = new StreamWriter($"{GetHashCode()}Question.txt", true))
+            using (TextWriter writer = new StreamWriter($"{question.Type}Questions.txt", true))
             {
                 writer.WriteLine(question);
             }
         }
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return base.GetHashCode();
         }
     }
 }

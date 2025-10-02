@@ -15,10 +15,7 @@ namespace Examination_System.Exams
         {
         }
 
-        public override void ShowExam()
-        {
 
-        }
 
         public override void TakeExam()
         {
@@ -27,16 +24,14 @@ namespace Examination_System.Exams
                 question.ShowQuestion();
                 AnswersList answers = question.GetAnswer();
                 UserAnswers[question] = answers;
-                foreach (var answer in answers)
+
+                if (UserAnswers[question].Equals(question.CorrectAnswers))
                 {
-                    if (answer.IsCorrect)
-                    {
-                        Score += question.Marks;
-                    }
+                    Score += question.Marks;
                 }
 
             }
-            Console.WriteLine($"Your Score Is : {Score}");
+            Console.WriteLine($"Your Score Is : {Score}\n");
         }
 
     }

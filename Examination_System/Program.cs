@@ -7,6 +7,7 @@ namespace Examination_System
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
             Subject s1 = new Subject("OOP"); // init Subject OOP
@@ -29,8 +30,8 @@ namespace Examination_System
 
             // init First Question And it's Answers
             AnswersList firstQAnswers = new AnswersList();
-            firstQAnswers.Add(new Answer("True", false));
-            firstQAnswers.Add(new Answer("False", true));
+            firstQAnswers.Add(new Answer("True", true));
+            firstQAnswers.Add(new Answer("False", false));
             TFQuestion firstQ = new TFQuestion("Is 10 < 15", 2) { Answers = firstQAnswers };
 
             // init Second Question And it's Answers
@@ -62,14 +63,28 @@ namespace Examination_System
             {
                 p.StartExam();
                 p.TakeExam();
+                p.FinishExam();
+                Console.Write("Do Yoy Want To See All Right Answers? (Y/N): ");
+                char show = Convert.ToChar(Console.ReadLine().ToLower());
+                if (show == 'y')
+                {
+                    p.ShowExam();
+                }
+
             }
             else if (choise == 2)
             {
                 f.StartExam();
                 f.TakeExam();
+                f.FinishExam();
+                Console.Write("Do Yoy Want To See All Right Answers? (Y/N): ");
+                char show = Convert.ToChar(Console.ReadLine().ToLower());
+                if (show == 'y')
+                {
+                    f.ShowExam();
+                }
             }
 
-            //Console.WriteLine(question);
         }
     }
 }

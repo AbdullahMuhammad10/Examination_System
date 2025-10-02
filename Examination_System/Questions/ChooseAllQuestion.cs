@@ -9,9 +9,10 @@ namespace Examination_System.Questions
 {
     internal class ChooseAllQuestion : ChooseQuestion
     {
+
         public ChooseAllQuestion(string body, int marks) : base("Choose All Correct Answer", body, marks)
         {
-
+            Type = QuestionType.MultiChoise;
         }
 
         public override AnswersList GetAnswer()
@@ -21,11 +22,26 @@ namespace Examination_System.Questions
             string input = Console.ReadLine();
             string[] ans = input.Split(",");
             AnswersList answers = new AnswersList();
+
             foreach (string answer in ans)
             {
-                answers.Add(new Answer(answer));
+                answers.Add(Answers[int.Parse(answer.Trim()) - 1]);
             }
             return answers;
+
+        }
+        public override object Clone()
+        {
+            ChooseAllQuestion question = new ChooseAllQuestion(Body, Marks);
+            foreach (Answer answer in Answers)
+            {
+                question.Answers.Add(answer);
+            }
+            foreach (Answer answer in CorrectAnswers)
+            {
+                question.CorrectAnswers.Add(answer);
+            }
+            return question;
         }
     }
 }

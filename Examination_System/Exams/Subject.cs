@@ -30,14 +30,9 @@ namespace Examination_System.Exams
         {
             foreach (Student student in students)
             {
-                Students.Add(student);
-                StudentAdded?.Invoke(student);
+                AddStudent(student);
             }
         }
-
-
-
-
-
+        public IReadOnlyList<Student> GetAllStudents() { return Students; }
     }
 }

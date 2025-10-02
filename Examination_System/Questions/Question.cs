@@ -7,18 +7,33 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Questions
 {
-    internal abstract class Question
+    public enum QuestionType
+    {
+        TF,
+        OneChoise,
+        MultiChoise
+    }
+    internal abstract class Question : IComparable<Question>, ICloneable
     {
         public Question(string header, string body, int marks)
         {
             Header = header;
             Body = body;
             Marks = marks;
+            Answers = new AnswersList();
         }
         public string Header { get; private set; }
         public string Body { get; private set; }
         public int Marks { get; private set; }
-        public AnswersList Answers { get; set; } = new AnswersList();
+        public QuestionType Type { get; set; }
+        public AnswersList Answers { get; set; }
+        public AnswersList CorrectAnswers
+        {
+            get
+            {
+                return new AnswersList(Answers.Where(a => a.IsCorrect));
+            }
+        }
 
         public abstract void ShowQuestion();
         public abstract AnswersList GetAnswer();
@@ -38,5 +53,13 @@ namespace Examination_System.Questions
             return this.Body == question.Body;
         }
 
+        public int CompareTo(Question? other)
+        {
+            if (other == null) return 1;
+            return Body.CompareTo(other.Body);
+        }
+
+        public abstract object Clone();
     }
+
 }

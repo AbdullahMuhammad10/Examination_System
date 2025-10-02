@@ -11,8 +11,9 @@ namespace Examination_System.Questions
     {
         public ChooseOneQuestion(string body, int marks) : base("Choose One Answer", body, marks)
         {
-
+            Type = QuestionType.OneChoise;
         }
+
 
         public override AnswersList GetAnswer()
         {
@@ -24,6 +25,20 @@ namespace Examination_System.Questions
             }
             while (input < 0 || input > Answers.Count);
             return new AnswersList { Answers[input - 1] };
+        }
+
+        public override object Clone()
+        {
+            ChooseOneQuestion question = new ChooseOneQuestion(Body, Marks);
+            foreach (Answer answer in Answers)
+            {
+                question.Answers.Add(answer);
+            }
+            foreach (Answer answer in CorrectAnswers)
+            {
+                question.CorrectAnswers.Add(answer);
+            }
+            return question;
         }
 
     }
