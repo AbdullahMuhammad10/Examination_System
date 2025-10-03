@@ -13,7 +13,7 @@ namespace Examination_System.Questions
         OneChoise,
         MultiChoise
     }
-    internal abstract class Question : IComparable<Question>, ICloneable
+    public abstract class Question : IComparable<Question>, ICloneable
     {
         public Question(string header, string body, int marks)
         {

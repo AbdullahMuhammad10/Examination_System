@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Questions
 {
-    internal abstract class ChooseQuestion : Question
+    public abstract class ChooseQuestion : Question
     {
         public ChooseQuestion(string header, string body, int marks) : base(header, body, marks)
         { }

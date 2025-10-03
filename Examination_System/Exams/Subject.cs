@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Exams
 {
-    internal class Subject
+    public class Subject
     {
         public event Action<Student> StudentAdded;
 

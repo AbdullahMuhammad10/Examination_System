@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Questions
 {
-    internal class ChooseOneQuestion : ChooseQuestion
+    public class ChooseOneQuestion : ChooseQuestion
     {
         public ChooseOneQuestion(string body, int marks) : base("Choose One Answer", body, marks)
         {
@@ -20,8 +20,8 @@ namespace Examination_System.Questions
             int input;
             do
             {
-                Console.Write("Your Answer (1,2) : ");
-                input = int.Parse(Console.ReadLine());
+                Console.Write("Your Answer : ");
+                input = ReadIntInput(1, Answers.Count());
             }
             while (input < 0 || input > Answers.Count);
             return new AnswersList { Answers[input - 1] };

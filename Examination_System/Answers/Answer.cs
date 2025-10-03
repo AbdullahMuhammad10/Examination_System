@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Answers
 {
-    internal class Answer : IComparable<Answer>, ICloneable
+    public class Answer : IComparable<Answer>, ICloneable
     {
         public Answer(string answer, bool isCorrect = false)
         {

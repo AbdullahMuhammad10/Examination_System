@@ -9,7 +9,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace Examination_System.Exams
 {
-    internal class FinalExam : Exam
+    public class FinalExam : Exam
     {
         public FinalExam(Subject subject) : base(subject)
         {
@@ -19,6 +19,7 @@ namespace Examination_System.Exams
 
         public override void TakeExam()
         {
+            Console.WriteLine("----------------------- Exam Starts ------------------------");
             foreach (var question in Questions)
             {
                 question.ShowQuestion();
@@ -29,7 +30,7 @@ namespace Examination_System.Exams
                 {
                     Score += question.Marks;
                 }
-
+                Console.WriteLine();
             }
             Console.WriteLine($"Your Score Is : {Score}\n");
         }

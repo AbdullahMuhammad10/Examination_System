@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Answers
 {
-    internal class AnswersList : List<Answer>
+    public class AnswersList : List<Answer>
     {
         public AnswersList()
         {

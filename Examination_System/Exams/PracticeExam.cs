@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Exams
 {
-    internal class PracticeExam : Exam
+    public class PracticeExam : Exam
     {
         public PracticeExam(Subject subject) : base(subject)
         {
@@ -17,6 +17,7 @@ namespace Examination_System.Exams
 
         public override void TakeExam()
         {
+            Console.WriteLine("----------------------- Exam Starts ------------------------");
             foreach (var question in Questions)
             {
                 question.ShowQuestion();
@@ -31,7 +32,7 @@ namespace Examination_System.Exams
                     Console.Write($"{answer}"); ;
                     isFirstAnswer = false;
                 }
-                Console.WriteLine();
+                Console.WriteLine("\n");
 
                 if (UserAnswers[question].Equals(question.CorrectAnswers))
                 {

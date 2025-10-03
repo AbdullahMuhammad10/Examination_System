@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Questions
 {
-    internal class ChooseAllQuestion : ChooseQuestion
+    public class ChooseAllQuestion : ChooseQuestion
     {
 
         public ChooseAllQuestion(string body, int marks) : base("Choose All Correct Answer", body, marks)

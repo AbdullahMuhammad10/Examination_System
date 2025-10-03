@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Exams
 {
-    internal abstract class Exam
+    public abstract class Exam
     {
         public event Action<string>? ExamStarting;
         public event Action<string>? ExamFinished;

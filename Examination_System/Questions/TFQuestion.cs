@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System.Questions
 {
-    internal class TFQuestion : Question
+    public class TFQuestion : Question
     {
         public TFQuestion(string body, int marks) : base("True OR False", body, marks)
         {
@@ -20,7 +20,7 @@ namespace Examination_System.Questions
             do
             {
                 Console.Write("Your Answer (1,2) : ");
-                input = int.Parse(Console.ReadLine());
+                input = ReadIntInput(1, Answers.Count());
             }
             while (input < 0 || input > Answers.Count);
 
